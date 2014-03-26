@@ -31,17 +31,17 @@ Features included in this plugins are:
 2. From admin menu create a post or page where you want this post submission form to be displayed.
 3. Use the shortcode *`[tt-submit-post]`* in the post or page.
 4. Submission form will be available on that page or post. Form has got few fields where some of them are required.
->* Title (Required)
->* Post Content (Required)
->* Select Category (Not required - If no category is selected the first category in the blog will be used as default category for that post)
->* Comma seperated tags (Not required)
->* Authors Name (Required - This name will be displayed as author name. But need to tweak code in theme which is explained below. Otherwise "admin" is the default author)
->* Email address (Required)
->* Website Address (Not Required)
->* Featured Image (Not Required)
->* Captcha (Required)
->* Reset button is used to clear any inputs in the form fields.
->* Submit button is used to submit post.
+	* Title (Required)
+	* Post Content (Required)
+	* Select Category (Not required - If no category is selected the first category in the blog will be used as default category for that post)
+	* Comma seperated tags (Not required)
+	* Authors Name (Required - This name will be displayed as author name. But need to tweak code in theme which is explained below. Otherwise "admin" is the default author)
+	* Email address (Required)
+	* Website Address (Not Required)
+	* Featured Image (Not Required)
+	* Captcha (Required)
+	* Reset button is used to clear any inputs in the form fields.
+	* Submit button is used to submit post.
 5. Once the post is submitted the admin will moderate the post and if admin publishes the post it will be available in the blog
 
 = How to display author name in the post =
@@ -52,12 +52,12 @@ For example if you use "twentytwelve" theme then you need to modify in "function
 * First open function.php
 * Find the function twentytwelve_entry_meta()
 * Find the following code
->*`$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+	`$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
-		get_the_author()`*
+		get_the_author()`
 * replace the last bit of code which is `get_thie_author()` with following code
->*`!empty(get_post_custom_values('author', get_the_ID())[0]) ?  get_post_custom_values('author', get_the_ID())[0] : get_the_author()`*
+	`!empty(get_post_custom_values('author', get_the_ID())[0]) ?  get_post_custom_values('author', get_the_ID())[0] : get_the_author()`
 
 Thats all you need to do and that will display the name that guest author provided as the author name.
 
