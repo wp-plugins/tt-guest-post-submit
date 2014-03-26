@@ -31,6 +31,7 @@ Features included in this plugins are:
 2. From admin menu create a post or page where you want this post submission form to be displayed.
 3. Use the shortcode *`[tt-submit-post]`* in the post or page.
 4. Submission form will be available on that page or post. Form has got few fields where some of them are required.
+
 * Title (Required)
 * Post Content (Required)
 * Select Category (Not required - If no category is selected the first category in the blog will be used as default category for that post)
@@ -42,6 +43,7 @@ Features included in this plugins are:
 * Captcha (Required)
 * Reset button is used to clear any inputs in the form fields.
 * Submit button is used to submit post.
+
 5. Once the post is submitted the admin will moderate the post and if admin publishes the post it will be available in the blog
 
 = How to display author name in the post =
