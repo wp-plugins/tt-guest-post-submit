@@ -52,10 +52,10 @@ For example if you use "twentytwelve" theme then you need to modify in "function
 * First open function.php
 * Find the function twentytwelve_entry_meta()
 * Find the following code
-	`$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+	*`$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
-		get_the_author()`
+		get_the_author()`*
 * replace the last bit of code which is `get_thie_author()` with following code
 	`!empty(get_post_custom_values('author', get_the_ID())[0]) ?  get_post_custom_values('author', get_the_ID())[0] : get_the_author()`
 
