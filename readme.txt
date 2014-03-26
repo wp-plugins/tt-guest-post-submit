@@ -43,7 +43,6 @@ Features included in this plugins are:
 * Captcha (Required)
 * Reset button is used to clear any inputs in the form fields.
 * Submit button is used to submit post.
-
 5. Once the post is submitted the admin will moderate the post and if admin publishes the post it will be available in the blog
 
 = How to display author name in the post =
