@@ -48,14 +48,14 @@ Features included in this plugins are:
 
 By default "admin" will be displayed as author name. If the guest provides the name and admin decides to display actual author's name in the post then admin needs to chnage the code in theme that the site is using.
 But if you know what you are doing then chnage the code otherwise you may end up with something wrong. Depending on which theme you are using it may differ on which file you need to make change.
-For example if you use "twentytwelve" theme then you need to modify in function.php.
+For example if you use twentytwelve theme then you need to modify in function.php.
 
 	* First open function.php
 	* Find the function twentytwelve_entry_meta()
 	* Find the following code
 	`$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ), get_the_author()`
-	* replace the last bit of code which is `get_thie_author()` with following code
+	* replace the last bit of code which is `get_the_author()` with following code
 	`!empty(get_post_custom_values('author', get_the_ID())[0]) ?  get_post_custom_values('author', get_the_ID())[0] : get_the_author()`
 
 Thats all you need to do and that will display the name that guest author provided as the author name.
