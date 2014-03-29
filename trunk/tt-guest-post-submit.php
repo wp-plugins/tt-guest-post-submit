@@ -9,8 +9,8 @@ Author URI: http://www.knowhowto.com.au/rashed-latif
 Donate link: http://www.knowhowto.com.au/donate
 Requires at least: 3.5
 Tested up to: 3.8
-Version: 1.0
-Stable tag: 1.0
+Version: 1.0.1
+Stable tag: 1.0.1
 License: GPL v2
 */
 
@@ -32,13 +32,13 @@ class TT_GuestPostSubmit{
         for ($i = 0; $i < 5; $i++) {
             $string .= chr(rand(97, 122));
         }
- 
+        $_SESSION['rootpath'] = str_replace('/wp-content/themes', '', get_theme_root()) .'/wp-blog-header.php';
         $_SESSION['random_code'] = $string;
         extract(shortcode_atts(array(
                             //'cat' => '1',
                             'author' => '1',
                             //'redirect_url' => get_bloginfo('home'),
-                            'redirect_url' => get_permalink()
+                            'redirect_url' => get_permalink(),
                             ), $atts )
                 );
         
@@ -65,9 +65,8 @@ class TT_GuestPostSubmit{
                                         '<img id="captcha-code" src="'. plugin_dir_url("tt-guest-post-submit.php") . 'tt-guest-post-submit/captcha.php' .'" />
                                         <input type="text" class="" title="Please Enter Correct Captcha Code" x-moz-errormessage="Please Enter Correct Captcha Code" id="code" name="code" size="30" pattern="'. $_SESSION['random_code'] . '" required="required" placeholder="' . 'Type the word' . '">' .
                                         '<input type="hidden" value="'. $author .'" name="authorid">
-                                        <input type="hidden" value="'. $redirect_url .'" name="redirect_url">
-                                        <input type="hidden" value="'. str_replace('/wp-content/themes', '', get_theme_root()) .'/wp-blog-header.php" name="rootpath"><br><br>
-                                </section>
+                                        <input type="hidden" value="'. $redirect_url .'" name="redirect_url">' . 
+                                '</section>
                                 
                                 <section id="buttons">
                                         <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset">
