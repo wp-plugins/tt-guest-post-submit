@@ -7,10 +7,10 @@ Tags: add post, content submission, guest blog, guest blogging, guest posting, w
 Author: Rashed Latif
 Author URI: http://www.knowhowto.com.au/rashed-latif
 Donate link: http://www.knowhowto.com.au/donate
-Requires at least: 3.5
-Tested up to: 3.8
-Version: 1.0.1
-Stable tag: 1.0.1
+Requires at least: 3.0.1
+Tested up to: 3.8.1
+Version: 1.0.2
+Stable tag: 1.0.2
 License: GPL v2
 */
 
@@ -26,7 +26,7 @@ class TT_GuestPostSubmit{
     }
     
     public function tt_guest_submit_post_shortcode($atts){
-        
+        ob_start();
         session_start();
         $string = '';
         for ($i = 0; $i < 5; $i++) {
@@ -35,9 +35,7 @@ class TT_GuestPostSubmit{
         $_SESSION['rootpath'] = str_replace('/wp-content/themes', '', get_theme_root()) .'/wp-blog-header.php';
         $_SESSION['random_code'] = $string;
         extract(shortcode_atts(array(
-                            //'cat' => '1',
                             'author' => '1',
-                            //'redirect_url' => get_bloginfo('home'),
                             'redirect_url' => get_permalink(),
                             ), $atts )
                 );
@@ -53,7 +51,6 @@ class TT_GuestPostSubmit{
                                         . wp_nonce_field() .
                                         '<textarea class="txtblock" name="content" title="Please Enter Contents" x-moz-errormessage="Please Enter Contents" rows="15" cols="72" required="required" placeholder="' . 'Write Your Post Contents ' . '"></textarea>'
                                         . wp_dropdown_categories('show_option_none=Select Category...&name=catdrp&taxonomy=category&hide_empty=0&echo=0') .
-                                        
                                         '<input type="text" class="txtinput" id="tags" name="tags" size="72" placeholder="' . 'Comma Separated Tags' . '">
                                         <input type="text" class="txtinput" title="Please Enter Author Name" x-moz-errormessage="Please Enter Author Name"  id="author"  name="author" size="72" required="required" placeholder="' . 'Your name here' . '">       
                                         <input type="email" class="txtinput" title="Please Enter a Valid Email Address" x-moz-errormessage="Please Enter a Valid Email Address " id="email" name="email" size="72" required="required" placeholder="' . 'Your Email address Here' . '">
@@ -67,7 +64,6 @@ class TT_GuestPostSubmit{
                                         '<input type="hidden" value="'. $author .'" name="authorid">
                                         <input type="hidden" value="'. $redirect_url .'" name="redirect_url">' . 
                                 '</section>
-                                
                                 <section id="buttons">
                                         <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset">
                                         <input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Submit Post">
@@ -75,7 +71,6 @@ class TT_GuestPostSubmit{
                                 </section>
                             </div>
                         </form>';
-                        
         return $template_str;
     } //End of Function "tt_guest_submit_post_shortcode"
 } //End of class
@@ -84,5 +79,4 @@ add_action('wp', 'initiate_ttgsp_object');
 function initiate_ttgsp_object(){
 	$ttgspObj = new TT_GuestPostSubmit();
 }
-
 ?>
