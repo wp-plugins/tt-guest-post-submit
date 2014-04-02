@@ -12,6 +12,8 @@ Submit your post and featured image without registering and logged in.
 
 == Description ==
 
+*I Appreciate if you please give reviews and any suggestions after using this plugin.*
+
 TT Guest Post Submit is a plugin that enables you to submit posts with the featuted image as a guest or visitor. Author doesn't have to log in or register to the site. This plugin is very handy for the blog sites where different authors are encouraged to submit posts.
 Once the post is submitted it has to be 
 Features included in this plugins are:
