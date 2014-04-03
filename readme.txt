@@ -80,4 +80,3 @@ Thats all you need to do and that will display the name that guest author provid
 
 = 1.0.2 =
 * Changed code to resolve a warning that some users were getting
-
