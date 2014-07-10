@@ -9,8 +9,8 @@ Author URI: http://www.knowhowto.com.au/rashed-latif
 Donate link: http://www.knowhowto.com.au/donate
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Version: 2.0
-Stable tag: 2.0
+Version: 2.1
+Stable tag: 2.1
 License: GPL v2
 */
 include dirname( __FILE__ ).'/ttgps-functions.php';
@@ -114,7 +114,7 @@ class TT_GuestPostSubmit{
     public function ttgps_display_dropdown( $data = array() ) {
 	extract($data);
 	if ($drp_type == 'post_status'){
-	    $drp_array = array('Published', 'Pending', 'Draft');	
+	    $drp_array = array('Publish', 'Pending', 'Draft');	
 	}else if($drp_type == 'guest_account'){
 	    $drp_array = get_users();  
 	    

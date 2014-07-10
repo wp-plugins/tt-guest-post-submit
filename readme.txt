@@ -4,7 +4,7 @@ Tags: add post, content submission, guest blog, guest blogging, guest posting, w
 Donate link: http://www.knowhowto.com.au/donate
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -113,3 +113,7 @@ Thats all you need to do and that will display the name that guest author provid
 * Field selection ability.
 * Multiple files can be uploaded for a post. Featured image can be set as well.
 * Better Captcha image.
+
+= 2.0 =
+
+* Published status was not working. It'd fixed now.
