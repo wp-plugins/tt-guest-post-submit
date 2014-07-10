@@ -114,6 +114,6 @@ Thats all you need to do and that will display the name that guest author provid
 * Multiple files can be uploaded for a post. Featured image can be set as well.
 * Better Captcha image.
 
-= 2.0 =
+= 2.1 =
 
 * Published status was not working. It'd fixed now.
