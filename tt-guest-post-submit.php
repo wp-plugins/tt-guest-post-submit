@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: TT Guest Post Submit
-Plugin URI: http://www.knowhowto.com.au/use-tt-guest-post-submit-plugin-wordpress/
+Plugin URI: http://www.technologiestoday.com.au/guide-to-use-tt-guest-post-submit-plugin-for-wordpress/
 Description: Enables your visitors to submit posts and images from anywhere on your site.
 Tags: add post, content submission, guest blog, guest blogging, guest posting, wordpress guest post, post, submit post, submit, guest, guest post, admin, anonymous post, guest author, guest author plugin, post from front end, visitor post, captcha, secured post submit, user submitted post
 Author: Rashed Latif
-Author URI: http://www.knowhowto.com.au/rashed-latif
-Donate link: http://www.knowhowto.com.au/donate
+Author URI: http://www.technologiestoday.com.au/rashed-latif
+Donate link: http://www.technologiestoday.com.au/donate
 Requires at least: 3.0.1
-Tested up to: 3.9.1
+Tested up to: 4.0
 Version: 2.1
 Stable tag: 2.1
 License: GPL v2
