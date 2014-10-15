@@ -4,7 +4,7 @@ Tags: add post, content submission, guest blog, guest blogging, guest posting, w
 Donate link: http://www.technologiestoday.com.au/donate
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,3 +64,10 @@ Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-us
 = 2.1 =
 
 * Published status was not working. It'd fixed now.
+
+=2.2 =
+
+* Translation Ready (Bengali, Czech, German, Spanish, French, Chinese-Simplified, Chinese-Traditional)
+* Customized content area size
+* Security check issue removed
+* Option to add filtered words from admin panel.
