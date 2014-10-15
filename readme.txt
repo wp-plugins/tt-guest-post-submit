@@ -71,3 +71,4 @@ Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-us
 * Customized content area size
 * Security check issue removed
 * Option to add filtered words from admin panel.
+* WPDEBUG issue fixed
