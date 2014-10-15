@@ -2,28 +2,19 @@
 
     function submit_post_function(){
     
-        if ($_POST['capf'] == "on" && $_POST['capr'] == "on"){    
+        if ((isset($_POST['capf']) && $_POST['capf']== "on") && (isset($_POST['capr']) && $_POST['capr'] == "on")){    
             $valid = false;
-            // Check if captcha text was entered
-            if ( empty( $_POST['ttgps_captcha'] ) )  {
-                wp_die( 'Captcha code is missing. Go back and provide the code.' );
-                exit;
-            } else {
-            // Check if captcha cookie is set
                 if ( isset( $_COOKIE['Captcha'] ) ) {
                     list( $hash, $time ) = explode( '.', $_COOKIE['Captcha'] );
                     
                     // The code under the md5 first section needs to match the code
                     // entered in easycaptcha.php
                     if ( md5( 'HDBHAYYEJKPWIKJHDD' . $_REQUEST['ttgps_captcha'] . $_SERVER['REMOTE_ADDR'] . $time ) != $hash ) {
-                            $abortmessage = 'Captcha code is wrong. Go back ';
-                            $abortmessage .= 'and try to get it right or reload ';
-                            $abortmessage .= 'to get a new captcha code.';
+                            $abortmessage = __('Captcha code is wrong. Go back and try to get it right or reload to get a new captcha code.', 'ttgps_text_domain');
                             wp_die( $abortmessage );
                             exit;
                     }elseif (( time() - 5 * 60 ) > $time ){
-                            $abortmessage = 'Captcha timed out. Please go back, ';
-                            $abortmessage .= 'reload the page and submit again.';
+                            $abortmessage = __('Captcha timed out. Please go back, reload the page and submit again.', 'ttgps_text_domain');
                             wp_die( $abortmessage );
                             exit;
                     }else{
@@ -31,34 +22,51 @@
                             $valid = true;
                     }
                 } else {
-                    $abortmessage = 'No captcha cookie given. Make sure ';
-                    $abortmessage .= 'cookies are enabled.';
-                    wp_die(	$abortmessage );
+                    $abortmessage = __('No captcha cookie given. Make sure cookies are enabled.', 'ttgps_text_domain');
+                    wp_die( $abortmessage );
                     exit;
                 } // End of if (isset($_COOKIE['Captcha']))
-            } // End of if (empty( $_POST['ttgps_captcha']))
         }
         else{
+	    
             $valid = true;
         }
+	
+	//Checking Filtered Key words//
+	if(isset($_POST['enable_filter']) && $_POST['enable_filter']=="on"){
+	    
+	    $filter_array = explode(',', $_POST['filter_items']);
+	    $filtered_words_found = array_filter($filter_array, 'filtered_word_check');
+	    if(count($filtered_words_found)>0){
+		$abortmessage = __('Following Filtered Messeged are found in your Post. Please go back and Edit your Post before submit');
+		$abortmessage .= "<br><br> <strong>";
+		$abortmessage .= __('Filtered Words List: ');
+		$abortmessage .=  implode(', ', $filtered_words_found ) . "</strong>";
+		wp_die($abortmessage);
+	    }
+	}
+	//====================================//
 	if ( $valid ) {
 	    
-	    $title = $_POST["title"];
-	    $content = $_POST["content"];
-	    $tags = $_POST["tags"];
-	    $author = $_POST["author"];
-	    $email = $_POST["email"];
-	    $site = $_POST["site"];
-	    $authorid = $_POST["authorid"];
-	    $category = ($_POST['catdrp']==-1) ? array(1) : array($_POST['catdrp']);
-	    $redirect_location = $_POST["redirect_url"];
-            $to_email = $_POST["to_email"];
+	    $title = isset($_POST["title"]) ? $_POST["title"] : "";
+	    $content = isset($_POST["content"]) ? $_POST["content"] : "";
+	    $tags = isset($_POST["tags"]) ? $_POST["tags"] : "";
+	    $author = isset($_POST["author"]) ? $_POST["author"] : "";
+	    $email = isset($_POST["email"]) ? $_POST["email"] : "";
+	    $site = isset($_POST["site"]) ? $_POST["site"] : "";
+	    $authorid = isset($_POST["authorid"]) ? $_POST["authorid"] : "" ;
+	    if(isset($_POST['catdrp'])){
+	    $category = $_POST['catdrp']==-1 ? array(1) : array($_POST['catdrp']);
+	    }else{
+	    $category = "";	
+	    }
+	    $redirect_location = isset($_POST["redirect_url"]) ? $_POST["redirect_url"] : "";
+            $to_email = isset($_POST["to_email"]) ? $_POST["to_email"] : "";
 
-            $nonce=$_POST["_wpnonce"];
+            //$nonce=$_POST["_wpnonce"];
 	    $poststatus = $_POST["post_status"];
 	
 	    if (isset($_POST['submit'])){
-		if (! wp_verify_nonce($nonce) ) die('Security check');
 		$new_post = array(
 		    'post_title'    => $title,
 		    'post_content'  => $content,
@@ -111,9 +119,15 @@
 	    // Redirect browser to review submission page
 	    //$redirectaddress = ( empty( $_POST['_wp_http_referer'] ) ? site_url() : $_POST['_wp_http_referer'] );
 	    $redirectaddress = ( !empty( $redirect_location ) ? $redirect_location : $_POST['_wp_http_referer'] );
-            wp_redirect( add_query_arg( 'submission_success', '1', $redirectaddress ) );
+            wp_redirect( add_query_arg( __('submission_success','ttgps_text_domain'), '1', $redirectaddress ) );
 	    exit;
 	} // End of if ($valid)
+    }
+    
+    function filtered_word_check($var){
+	if(strpos(" ".$_POST["content"], $var)){
+	    return true;
+	}
     }
     
     function insert_attachment($file_handler, $post_id, $setthumb) {
@@ -130,20 +144,28 @@
         return $attach_id;
     }
     
+    function check_and_set_value($val){
+	if(isset($_POST[$val])){
+	    return $_POST[$val];
+	}else{
+	    return "";
+	}
+	
+    }
+    
     function ttgps_send_confirmation_email($to_email) {
 
         $headers = 'Content-type: text/html';
-        $message = 'A user submitted a new post to your ';
-        $message .= 'Wordpress site database.<br /><br />';
-        $message .= 'Post Title: ' . $_POST['title'] ;
+        $message = __('A user submitted a new post to your Wordpress site database.','ttgps_text_domain').'<br /><br />';
+        $message .= __('Post Title: ','ttgps_text_domain') . check_and_set_value('title') ;
         $message .= '<br />';
         $message .= '<a href="';
         $message .= add_query_arg( array(
                                 'post_status' => $_POST["post_status"],
                                 'post_type' => 'post' ),
                                 admin_url( 'edit.php' ) );
-        $message .= '">Moderate new post</a>';
-        $email_title = htmlspecialchars_decode( get_bloginfo(), ENT_QUOTES ) . " - New Post Added: " . htmlspecialchars( $_POST['title'] );
+        $message .= '">'.__('Moderate new post', 'ttgps_text_domain').'</a>';
+        $email_title = htmlspecialchars_decode( get_bloginfo(), ENT_QUOTES ) . __(" - New Post Added: ", "ttgps_text_domain") . htmlspecialchars( check_and_set_value('title') );
         // Send e-mail
         wp_mail( $to_email, $email_title, $message, $headers );
         
