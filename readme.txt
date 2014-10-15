@@ -65,7 +65,7 @@ Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-us
 
 * Published status was not working. It'd fixed now.
 
-=2.2 =
+= 2.2 =
 
 * Translation Ready (Bengali, Czech, German, Spanish, French, Chinese-Simplified, Chinese-Traditional)
 * Customized content area size
