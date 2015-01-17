@@ -31,7 +31,7 @@ Features included in this plugins are:
 * Redirect user to current page or any other page (which can be set from option page) after successful post submission
 * HTML5 submission form with streamlined CSS styles
 
-Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-use-tt-guest-post-submit-plugin-for-wordpress) plugin page for step by step guide to use this plugin.
+Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-use-tt-guest-post-submit-plugin-for-wordpress/) plugin page for step by step guide to use this plugin.
 
 == Installation ==
 
