@@ -8,9 +8,9 @@ Author: Rashed Latif
 Author URI: http://www.technologiestoday.com.au/rashed-latif
 Donate link: http://www.technologiestoday.com.au/donate
 Requires at least: 3.0.1
-Tested up to: 4.0
-Version: 2.2
-Stable tag: 2.2
+Tested up to: 4.2.2
+Version: 3.0
+Stable tag: 3.0
 License: GPL v2
 */
 include dirname( __FILE__ ).'/ttgps-functions.php';
