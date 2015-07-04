@@ -48,7 +48,7 @@ Features included in this plugin are:
 * Enable/Disable redirection to the new published post after post submission
 * Google reCaptcha implemented
 
-Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-use-tt-guest-post-submit-plugin-for-wordpress/) plugin page for step by step guide to use this plugin.
+Visit the [TT Guest Post Submit](http://technologiestoday.com.au/guide-to-use-tt-guest-post-submit-plugin-for-wordpress-2/) plugin page for step by step guide to use this plugin.
 
 == Installation ==
 
