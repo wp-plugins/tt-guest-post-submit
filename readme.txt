@@ -3,12 +3,12 @@ Contributors: rashed.latif
 Tags: add post, content submission, guest blog, guest blogging, guest posting, wordpress guest post, post, submit post, submit, guest, guest post, admin, anonymous post, guest author, guest author plugin,post from front end, visitor post, captcha, secured post submit, user submitted post
 Donate link: http://www.technologiestoday.com.au/donate
 Requires at least: 3.0.1
-Tested up to: 4.0
-Stable tag: 2.2
+Tested up to: 4.2.2
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Submit your post as guest user. Add featured image and other media to the post. Easy to use but very usefull.
+Submit your post as guest user. Add featured image and other media to the post. Easy to use but very usefull. 
 
 == Description ==
 
@@ -16,7 +16,7 @@ Submit your post as guest user. Add featured image and other media to the post. 
 
 TT Guest Post Submit is a plugin that enables you to submit posts with the featuted image as a guest or visitor. Author doesn't have to log in or register to the site. This plugin is very handy for the blog sites where different authors are encouraged to submit posts.
 
-Features included in this plugins are:
+Features included in this plugin are:
 
 * Plugin option page - User can customize settings.
 * Email notification to admin eamil or any other email after successfull post submission.
@@ -30,6 +30,23 @@ Features included in this plugins are:
 * Post submissions may include title, tags, category, author, url, post and image
 * Redirect user to current page or any other page (which can be set from option page) after successful post submission
 * HTML5 submission form with streamlined CSS styles
+* Minimum Number of Characters required for the post
+* Maximum resolution for the uploaded images
+* Specify File types for upload
+* Specify file size
+* Restrict the number of images for upload
+* Display selected categories in submit form
+* Ability to select more than one category
+* Add a default category
+* Enable/Disable comment on the post
+* Rich text editor
+* Multiple notification email
+* New field added
+* Enable Filter for title
+* Let the user choose the title of each field
+* Ability to rearrange the fields in user interface
+* Enable/Disable redirection to the new published post after post submission
+* Google reCaptcha implemented
 
 Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-use-tt-guest-post-submit-plugin-for-wordpress/) plugin page for step by step guide to use this plugin.
 
@@ -41,7 +58,13 @@ Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-us
 
 == Screenshots ==
 
-1. TT Guest Post Submit Form
+1. User Interface
+2. TTGPS-LITE-General Settings Options
+3. TTGPS-LITE-Other Options
+4. TTGPS-FULL-General Settings Options
+5. TTGPS-FULL-Other Options
+
+
 
 == Changelog ==
 
@@ -72,3 +95,10 @@ Visit the [TT Guest Post Submit](http://www.technologiestoday.com.au/guide-to-us
 * Security check issue removed
 * Option to add filtered words from admin panel.
 * WPDEBUG issue fixed
+
+= 3.0 =
+
+* Few minor bug fixed which were reported by users
+* Added phone number field for the frontend submit form
+* Option Page is re-organized for better user experience
+* 17 New features added but can only be used in full version.
